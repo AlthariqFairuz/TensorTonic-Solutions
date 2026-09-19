@@ -1,9 +1,12 @@
 import numpy as np
 
-def dropout(x, p=0.5, rng=None):
+def dropout(
+    x: list,
+    p: float = 0.5,
+    rng: np.random.Generator = None,
+) -> tuple[np.ndarray, np.ndarray]:
     """
-    Apply dropout to input x with probability p.
-    Return (output, dropout_pattern).
+    Returns (output, dropout_pattern) as NumPy arrays matching the shape of x.
     """
     x = np.asarray(x, float)
     rng = rng if isinstance(rng, np.random.Generator) else np.random.default_rng(0)
