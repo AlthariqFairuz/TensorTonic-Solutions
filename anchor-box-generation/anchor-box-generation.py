@@ -1,6 +1,6 @@
-def generate_anchors(feature_size, image_size, scales, aspect_ratios):
+def generate_anchors(feature_size: int, image_size: float, scales: list[float], aspect_ratios: list[float]) -> list[list[float]]:
     """
-    Generate anchor boxes for object detection.
+    Returns a list of [x1, y1, x2, y2] anchor boxes.
     """
     stride = image_size / feature_size
     anchors = []
@@ -13,5 +13,4 @@ def generate_anchors(feature_size, image_size, scales, aspect_ratios):
                     w = s * math.sqrt(r)
                     h = s / math.sqrt(r)
                     anchors.append([cx - w/2, cy - h/2, cx + w/2, cy + h/2])
-
-    return anchors
+    return anchors 
